@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="header">
+        <div id="map" class="col-sm-4">
+            <iframe id="Map"></iframe>
+        </div>
+        <div id="currentWeather" class="col-sm-4">
+            <div id="temp">
+                <span class="topSpan" id="currentTemp">22℃</span>
+                <span id="weatherIcon" class="topSpan"><img id="weatherIconImg"></span>
+            </div>
+            <div id="specs">
+                <p>Description: <span id="currentDescription"></span></p>
+                <p>Humidity: <span id="currentHumidity"></span></p>
+                <p>Pressure: <span id="currentPressure"></span></p>
+                <p>Min Temperature: <span id="currentMinTemp"></span></p>
+                <p>Max Temperature: <span id="currentMaxTemp"></span></p>
+            </div>
+        </div>
+        <div id="citySearch" >
+            <p id="findCity">It is best to read the weather forecast before praying for rain!</p>
+            <button class="buttons" id="citySearchButton"><i class="fa fa-search"></i></button>
+            <input id="city">
+            <select id="tempScale" onchange="tempScaleSelect(this.value)">
+                <option value="celsius">℃</option>
+                <option value="fahrenheit">℉</option>
+            </select>
+            <button id="findLocationWeather">Check my location!</button>
+            <div id="cityNameContent">
+                <i class='fa fa-map-marker' style="font-size: 330%;padding-right:2%;text-shadow: 3px 2px 3px black;"></i>
+                <h2 id="cityName"></h2>
+            </div>
+        </div>
+    </div>
+    <div id="seeForecastButton">
+        <button id="seeForecast" class="buttons">Weather Forecast</button>
+    </div>
+    <div id="weatherForecast">
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="dayForecast">
+                <p id="date1">22.04.2021</p>
+                <div>
+                    <button id="left1" class="hourButtons" class="leftButtons" class="leftButtons" onclick="previousHour(this.id)"><i class="fa fa-caret-left"></i></button>
+                    <span id="hour1">3:00</span>
+                    <button id="right1" class="hourButtons" class="rightButtons" class="leftButtons" onclick="nextHour(this.id)"><i class="fa fa-caret-right"></i></button>
+                </div>
+                <span id="icon1"><i class="fa fa-snowflake-o"></i></span>
+                <span id="temp1">22℃</span>
+                <p id="desc1">Description: snowy</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="dayForecast">
+                <p id="date2">22.04.2021</p>
+                <div>
+                    <button id="left2" class="hourButtons" class="leftButtons" onclick="previousHour(this.id)"><i class="fa fa-caret-left"></i></button>
+                    <span id="hour2">3:00</span>
+                    <button id="right2" class="hourButtons" class="rightButtons" onclick="nextHour(this.id)"><i class="fa fa-caret-right"></i></button>
+                </div>
+                <span id="icon2"><i class="fa fa-snowflake-o"></i></span>
+                <span id="temp2">22℃</span>
+                <p id="desc2">Description: snowy</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="dayForecast">
+                <p id="date3">22.04.2021</p>
+                <div>
+                    <button id="left3" class="hourButtons" class="leftButtons" class="leftButtons" onclick="previousHour(this.id)"><i class="fa fa-caret-left"></i></button>
+                    <span id="hour3">3:00</span>
+                    <button id="right3" class="hourButtons" class="rightButtons" onclick="nextHour(this.id)"><i class="fa fa-caret-right"></i></button>
+                </div>
+                <span id="icon3"><i class="fa fa-snowflake-o"></i></span>
+                <span id="temp3">22℃</span>
+                <p id="desc3">Description: snowy</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="dayForecast">
+                <p id="date4">22.04.2021</p>
+                <div>
+                    <button id="left4" class="hourButtons" class="leftButtons" class="leftButtons" onclick="previousHour(this.id)"><i class="fa fa-caret-left"></i></button>
+                    <span id="hour4">3:00</span>
+                    <button id="right4" class="hourButtons" class="rightButtons" onclick="nextHour(this.id)"><i class="fa fa-caret-right"></i></button>
+                </div>
+                <span id="icon4"><i class="fa fa-snowflake-o"></i></span>
+                <span id="temp4">22℃</span>
+                <p id="desc4">Description: snowy</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="dayForecast">
+                <p id="date5">22.04.2021</p>
+                <div>
+                    <button id="left5" class="hourButtons" class="leftButtons" class="leftButtons" onclick="previousHour(this.id)"><i class="fa fa-caret-left"></i></button>
+                    <span id="hour5">3:00</span>
+                    <button id="right5" class="hourButtons" class="rightButtons" onclick="nextHour(this.id)"><i class="fa fa-caret-right"></i></button>
+                </div>
+                <span id="icon5"><i class="fa fa-snowflake-o"></i></span>
+                <span id="temp5">22℃</span>
+                <p id="desc5">Description: snowy</p>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <div class="dayForecast">
+                <p id="date6">22.04.2021</p>
+                <div>
+                    <button id="left6" class="hourButtons" class="leftButtons" class="leftButtons" onclick="previousHour(this.id)"><i class="fa fa-caret-left"></i></button>
+                    <span id="hour6">3:00</span>
+                    <button id="right6" class="hourButtons" class="rightButtons" onclick="nextHour(this.id)"><i class="fa fa-caret-right"></i></button>
+                </div>
+                <span id="icon6"><i class="fa fa-snowflake-o"></i></span>
+                <span id="temp6">22℃</span>
+                <p id="desc6">Description: snowy</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
